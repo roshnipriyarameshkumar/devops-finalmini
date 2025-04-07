@@ -40,6 +40,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh '''
+                minikube delete
+                minikube start
                 kubectl apply -f deploy.yaml --validate=false
                 kubectl apply -f svc.yaml --validate=false
                 '''
