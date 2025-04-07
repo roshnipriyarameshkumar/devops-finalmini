@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "resmasre/project"
+        IMAGE_NAME = "roshnipriya17/devopsfinalmini"
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/Resmasre/Project.git'
+                git branch: 'main', url: 'https://github.com/roshnipriyarameshkumar/devops-finalmini.git'
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 sh '''
-                docker login -u resmasre -p Reshmasrep
+                docker login -u roshnipriya17 -p roshni123
                 docker push $IMAGE_NAME
                 '''
             }
